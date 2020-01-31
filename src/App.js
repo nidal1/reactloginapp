@@ -3,6 +3,7 @@ import Form from './components/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Alert from './components/Alert';
+
 export default class App extends Component {
   constructor(props){
     super(props);

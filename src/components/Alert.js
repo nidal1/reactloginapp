@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
-
+/**
+ * 
+ 
 export default class Alert extends Component {
     constructor(props){
         super(props);
         this.state = {
         }
     }
-    componentWillReceiveProps(nextProps) {
-        this.setState({ showAlert: nextProps.display });  
-      }
     
     render() {
         if (this.props.display) {
@@ -31,9 +30,9 @@ export default class Alert extends Component {
         
     }
 }
+*/
 
-/**
- * export default class Alert extends Component {
+export default class Alert extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -42,10 +41,12 @@ export default class Alert extends Component {
             classname:''
         }
     }
-    componentWillReceiveProps(nextProps) {
-        this.setState({ showAlert: nextProps.display });  
-      }
-    
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (nextProps.display !== prevState.showAlert) {
+          return ({ showAlert: nextProps.display }) 
+        }
+        return null;
+    }
     render() {
         if (this.state.showAlert) {
             if (this.props.isuserexist()) {
@@ -67,4 +68,4 @@ export default class Alert extends Component {
         
     }
 }
- */
+
